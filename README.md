@@ -14,3 +14,5 @@ There are two ways to install the plugin:
 
 1. Search for Superlime in Package Control
 2. Clone this repository to SublimeText Packages folder
+
+Homepage: http://projects.zubr.me/wiki/Superlime
