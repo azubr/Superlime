@@ -1,4 +1,4 @@
-# [Superlime](https://github.com/azubr/superlime)
+# [Superlime](https://github.com/azubr/Superlime)
 Requests root/admin rights if a file cannot be saved in SublimeText
 
 ### Compatibility
