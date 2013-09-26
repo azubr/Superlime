@@ -5,6 +5,10 @@ Requests root/admin rights if a file cannot be saved in SublimeText
 * Linux (depends on gksudo or kdesudo)
 * Windows (depends on PowerShell)
 
+Mac version of SublimeText supports such functionality natively
+
+![Screenshot](screenshot.png)
+
 ### Plugin installation
 There are two ways to install the plugin:
 
