@@ -25,7 +25,7 @@ class Superlime(sublime_plugin.EventListener):
 			finally:
 				tempFile.close()
 
-			print view.file_name(), ": Saved temp file with encoding " + encoding
+			#print view.file_name(), ": Saved temp file with encoding " + encoding
 
 			oldScratch = view.is_scratch()
 			view.set_scratch(True)
