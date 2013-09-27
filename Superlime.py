@@ -30,7 +30,7 @@ class Superlime(sublime_plugin.EventListener):
 			oldScratch = view.is_scratch()
 			view.set_scratch(True)
 			self.copyFile(tempFile.name, view.file_name())
-			view.run_command('reload')
+			view.run_command('revert')
 			sublime.set_timeout(lambda: view.set_scratch(oldScratch), 50)
 			os.remove(tempFile.name)
 
