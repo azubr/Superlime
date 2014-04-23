@@ -1,3 +1,4 @@
+========================================
 Superlime plugin for Sublime Text editor
 ========================================
 
@@ -14,14 +15,18 @@ Compatibility
 
 Mac version of SublimeText supports such functionality natively
 
-.. image:: http://projects.zubr.me/browser/superlime/screenshot.png?format=raw
+|screenshot|
 
 Plugin installation
 -------------------
 
 * There are two ways to install the plugin:
 
-  1. Search for Superlime in [https://sublime.wbond.net/ Package Control]
-  2. Clone [https://projects.zubr.me/git/superlime.git repository] to !SublimeText Packages folder
+  1. Search for Superlime in `Package Control`_
+  2. Clone repository_ to SublimeText Packages folder
 
 * Set "atomic_save" setting to false in Sublime Text 3
+
+.. _Package Control: https://sublime.wbond.net/
+.. _repository: http://projects.zubr.me/git/superlime.git
+.. |screenshot| image:: http://projects.zubr.me/browser/superlime/screenshot.png?format=raw
