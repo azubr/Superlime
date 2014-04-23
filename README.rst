@@ -14,8 +14,16 @@ Compatibility
 
 Mac version of SublimeText supports such functionality natively
 
+:code-block:`Image:source:/superlime/screenshot.jpg`
+
 .. image:: source:superlime/screenshot.png
+
 .. trac:: source:superlime/screenshot.png
+
+.. code-block:: Image
+
+   source:/superlime/screenshot.jpg
+
 Plugin installation
 -------------------
 
