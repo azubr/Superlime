@@ -14,15 +14,15 @@ Compatibility
 
 Mac version of SublimeText supports such functionality natively
 
-:code-block:`Image:source:/superlime/screenshot.jpg`
+:code-block:`Image:source:/superlime/screenshot.png`
 
-.. image:: source:superlime/screenshot.png
+.. image:: /browser/superlime/screenshot.png?format=raw
 
 .. trac:: source:superlime/screenshot.png
 
 .. code-block:: Image
 
-   source:/superlime/screenshot.jpg
+   source:/superlime/screenshot.png
 
 Plugin installation
 -------------------
