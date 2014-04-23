@@ -17,6 +17,7 @@
 import sublime, sublime_plugin, subprocess, os, tempfile, re, binascii
 
 class Superlime(sublime_plugin.EventListener):
+	lineEndings = {'Windows': '\r\n', 'Unix': '\n', 'CR': '\r'}
 	hadSavingError = False
 
 	def on_activated(self, view):
@@ -36,7 +37,7 @@ class Superlime(sublime_plugin.EventListener):
 						.replace("UTF-8 ", "utf_8") \
 						.lower()
 			try:
-				encoded = content.encode(encoding) if encoding != "Hexadecimal" else binascii.unhexlify(string.replace(" ",""))
+				encoded = content.replace('\n', self.lineEndings[view.line_endings()]).encode(encoding) if encoding != "Hexadecimal" else binascii.unhexlify(string.replace(" ",""))
 				tempFile.write(encoded)
 			finally:
 				tempFile.close()
