@@ -28,5 +28,5 @@ Plugin installation
 * Set "atomic_save" setting to false in Sublime Text 3
 
 .. _Package Control: https://sublime.wbond.net/
-.. _repository: http://projects.zubr.me/git/superlime.git
+.. _repository: http://projects.zubr.me/superlime.git
 .. |screenshot| image:: http://projects.zubr.me/browser/superlime/screenshot.png?format=raw
