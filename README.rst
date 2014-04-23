@@ -20,12 +20,12 @@ Mac version of SublimeText supports such functionality natively
 Plugin installation
 -------------------
 
-* There are two ways to install the plugin:
+1. There are two ways to install the plugin:
 
-  1. Search for Superlime in `Package Control`_
-  2. Clone repository_ to SublimeText Packages folder
+  * Search for Superlime in `Package Control`_
+  * Clone repository_ to SublimeText Packages folder
 
-* Set "atomic_save" setting to false in Sublime Text 3
+2. Set "atomic_save" setting to false in Sublime Text 3
 
 .. _Package Control: https://sublime.wbond.net/
 .. _repository: http://projects.zubr.me/superlime.git
