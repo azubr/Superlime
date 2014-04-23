@@ -14,7 +14,7 @@ Compatibility
 
 Mac version of SublimeText supports such functionality natively
 
-.. image:: https:/projects.zubr.me/browser/superlime/screenshot.png?format=raw
+.. image:: http://projects.zubr.me/browser/superlime/screenshot.png?format=raw
 
 Plugin installation
 -------------------
@@ -23,5 +23,5 @@ Plugin installation
 
   1. Search for Superlime in [https://sublime.wbond.net/ Package Control]
   2. Clone [https://projects.zubr.me/git/superlime.git repository] to !SublimeText Packages folder
-  
+
 * Set "atomic_save" setting to false in Sublime Text 3
