@@ -14,23 +14,14 @@ Compatibility
 
 Mac version of SublimeText supports such functionality natively
 
-:code-block:`Image:source:/superlime/screenshot.png`
-
-.. image:: /browser/superlime/screenshot.png?format=raw
-
-.. trac:: source:superlime/screenshot.png
-
-.. code-block:: Image
-
-   source:/superlime/screenshot.png
+.. image:: https:/projects.zubr.me/browser/superlime/screenshot.png?format=raw
 
 Plugin installation
 -------------------
 
 * There are two ways to install the plugin:
+
   1. Search for Superlime in [https://sublime.wbond.net/ Package Control]
   2. Clone [https://projects.zubr.me/git/superlime.git repository] to !SublimeText Packages folder
+  
 * Set "atomic_save" setting to false in Sublime Text 3
-
-
-[[Image(source:/superlime/screenshot.png)]]
