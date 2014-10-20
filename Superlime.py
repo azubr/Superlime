@@ -68,9 +68,10 @@ class Superlime(sublime_plugin.EventListener):
 			os.popen(psCommand)
 		if os.name == "posix":
 			trySudo = lambda sudo: subprocess.call('%s dd if=%s of=%s' % (sudo, source, target), shell=True, stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.STDOUT)
-			if trySudo("gksudo") == 127:
-				if trySudo("kdesudo"):
-					sublime.message_dialog("No sudo GUI found")
+			if trySudo("pkexec") == 127:
+				if trySudo("gksudo") == 127:
+					if trySudo("kdesudo"):
+						sublime.message_dialog("No sudo GUI found")
 
 
 			
