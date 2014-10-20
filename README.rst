@@ -7,7 +7,7 @@ Superlime requests root/admin rights if a file cannot be saved in SublimeText.
 Compatibility
 -------------
 
-* Linux (depends on gksudo or kdesudo)
+* Linux (depends on gksudo or kdesudo or pkexec)
 * Windows (depends on PowerShell)
 
 * Sublime Text 2
