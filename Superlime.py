@@ -63,9 +63,9 @@ class Superlime(sublime_plugin.EventListener):
 	def copyFile(self, source, target):
 		if os.name == "nt":
 			command = 'copy /y `\\"%s`\\" `\\"%s`\\"' % (source, target)
-			runasCommand = 'start-process \\"$env:windir\system32\cmd.exe\\" \\"/c,%s\\" -verb RunAs -Wait -WindowStyle Hidden -WorkingDirectory $env:windir' % command
+			runasCommand = '$proc = start-process \\"$env:windir\system32\cmd.exe\\" \\"/c,%s\\" -verb RunAs -WindowStyle Hidden -WorkingDirectory $env:windir -Passthru; do {start-sleep -Milliseconds 100} until ($proc.HasExited)' % command
 			psCommand = 'powershell -command "%s"' % runasCommand
-			os.popen(psCommand)
+			subprocess.call(psCommand, shell=True)
 		if os.name == "posix":
 			trySudo = lambda sudo: subprocess.call('%s dd if=%s of=%s' % (sudo, source, target), shell=True, stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.STDOUT)
 			if trySudo("pkexec") == 127:
