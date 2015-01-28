@@ -11,7 +11,7 @@ Compatibility
 * Windows (depends on PowerShell)
 
 * Sublime Text 2
-* Sublime Text 3 (with "atomic save" switched off)
+* Sublime Text 3 (with "atomic save" switched off in case of Linux)
 
 Mac version of SublimeText supports such functionality natively
 
@@ -25,8 +25,8 @@ Plugin installation
   * Search for Superlime in `Package Control`_
   * Clone repository_ to SublimeText Packages folder
 
-2. Set "atomic_save" setting to false in Sublime Text 3
+2. (Sublime Text 3 on Linux only) Set "atomic_save" setting to false
 
-.. _Package Control: https://sublime.wbond.net/
+.. _Package Control: https://packagecontrol.io/
 .. _repository: http://projects.zubr.me/superlime.git
 .. |screenshot| image:: http://projects.zubr.me/browser/superlime/screenshot.png?format=raw
