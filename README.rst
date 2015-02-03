@@ -11,7 +11,7 @@ Compatibility
 * Windows (depends on PowerShell)
 
 * Sublime Text 2
-* Sublime Text 3 (with "atomic save" switched off in case of Linux)
+* Sublime Text 3
 
 Mac version of SublimeText supports such functionality natively
 
@@ -20,12 +20,14 @@ Mac version of SublimeText supports such functionality natively
 Plugin installation
 -------------------
 
-1. There are two ways to install the plugin:
+There are two ways to install the plugin:
 
   * Search for Superlime in `Package Control`_
   * Clone repository_ to SublimeText Packages folder
 
-2. (Sublime Text 3 on Linux only) Set "atomic_save" setting to false
+Possible problems
+-----------------
+1. On old builds of Sublime Text 3 you could get "unable to create tmp directory" message. In this case set "atomic_save" setting to false. There is no such problem in new builds (tested with build 3065).
 
 .. _Package Control: https://packagecontrol.io/
 .. _repository: http://projects.zubr.me/superlime.git
