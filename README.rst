@@ -9,6 +9,7 @@ Compatibility
 
 * Linux (depends on gksudo or kdesudo or pkexec)
 * Windows (depends on PowerShell)
+* Mac OS X (depends on osascript)
 
 * Sublime Text 2
 * Sublime Text 3
