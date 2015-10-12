@@ -67,11 +67,14 @@ class Superlime(sublime_plugin.EventListener):
 			psCommand = 'powershell -command "%s"' % runasCommand
 			subprocess.call(psCommand, shell=True)
 		if os.name == "posix":
-			trySudo = lambda sudo: subprocess.call('%s dd if=%s of=%s' % (sudo, source, target), shell=True, stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.STDOUT)
-			if trySudo("pkexec") == 127:
-				if trySudo("gksudo") == 127:
-					if trySudo("kdesudo"):
-						sublime.message_dialog("No sudo GUI found")
+			def trySudo(sudo):
+				dd="dd if=%s of=%s" % (source, target)
+				return subprocess.call(sudo % dd, shell=True, stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.STDOUT)
+			if trySudo("pkexec %s") == 127:
+				if trySudo("gksudo %s") == 127:
+					if trySudo("kdesudo %s") == 127:
+						if trySudo("""/usr/bin/osascript -e 'do shell script "%s" with administrator privileges'"""):
+							sublime.message_dialog("No sudo GUI found")
 
 
 			
