@@ -64,7 +64,7 @@ class Superlime(sublime_plugin.EventListener):
 	def copyFile(self, source, target):
 		if os.name == "nt":
 			command = 'copy /y `\\"%s`\\" `\\"%s`\\"' % (source, target)
-			runasCommand = 'try {$proc = start-process \\"$env:COMSPEC\\" \\"/c,%s\\" -verb RunAs -WindowStyle Hidden -WorkingDirectory $env:windir -Passthru; do {start-sleep -Milliseconds 100} until ($proc.HasExited); exit 0} catch {exit 1}' % command
+			runasCommand = 'try {$proc = Start-Process \\"$env:COMSPEC\\" \\"/c,%s\\" -verb RunAs -WindowStyle Hidden -WorkingDirectory \\"$env:windir\\" -PassThru; Do {Start-Sleep -Milliseconds 100} Until ($proc.HasExited); exit $proc.ExitCode } catch {exit 1}' % command
 			psCommand = 'powershell -command "%s"' % runasCommand
 			return subprocess.call(psCommand, shell=True)
 		if os.name == "posix":
