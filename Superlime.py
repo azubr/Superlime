@@ -35,6 +35,7 @@ class Superlime(sublime_plugin.EventListener):
 						.replace("KOI8-", "koi8_") \
 						.replace("UTF-16 ", "utf_16_") \
 						.replace("UTF-8 ", "utf_8") \
+						.replace("with BOM", "_sig") \
 						.lower()
 			try:
 				encoded = content.replace('\n', self.lineEndings[view.line_endings()]).encode(encoding) if encoding != "Hexadecimal" else binascii.unhexlify(string.replace(" ",""))
@@ -46,8 +47,8 @@ class Superlime(sublime_plugin.EventListener):
 
 			oldScratch = view.is_scratch()
 			view.set_scratch(True)
-			self.copyFile(tempFile.name, view.file_name())
-			view.run_command('revert')
+			if 0 == self.copyFile(tempFile.name, view.file_name()):
+				view.run_command('revert')
 			sublime.set_timeout(lambda: view.set_scratch(oldScratch), 50)
 			os.remove(tempFile.name)
 
@@ -63,19 +64,20 @@ class Superlime(sublime_plugin.EventListener):
 	def copyFile(self, source, target):
 		if os.name == "nt":
 			command = 'copy /y `\\"%s`\\" `\\"%s`\\"' % (source, target)
-			runasCommand = '$proc = start-process \\"$env:windir\system32\cmd.exe\\" \\"/c,%s\\" -verb RunAs -WindowStyle Hidden -WorkingDirectory $env:windir -Passthru; do {start-sleep -Milliseconds 100} until ($proc.HasExited)' % command
+			runasCommand = 'try {$proc = Start-Process \\"$env:COMSPEC\\" \\"/c,%s\\" -verb RunAs -WindowStyle Hidden -WorkingDirectory \\"$env:windir\\" -PassThru; $proc.WaitForExit(); exit $proc.ExitCode } catch {exit 1}' % command
 			psCommand = 'powershell -command "%s"' % runasCommand
-			subprocess.call(psCommand, shell=True)
+			return subprocess.call(psCommand, shell=True)
 		if os.name == "posix":
 			def trySudo(sudo):
 				dd="dd if=%s of=%s" % (source, target)
 				return subprocess.call(sudo % dd, shell=True, stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.STDOUT)
-			if trySudo("pkexec %s") == 127:
-				if trySudo("gksudo %s") == 127:
-					if trySudo("kdesudo %s") == 127:
-						if trySudo("""/usr/bin/osascript -e 'do shell script "%s" with administrator privileges'"""):
+			sudoErr = trySudo("pkexec %s")
+			if sudoErr == 127:
+				sudoErr = trySudo("gksudo %s")
+				if sudoErr == 127:
+					sudoErr = trySudo("kdesudo %s")
+					if sudoErr == 127:
+						sudoErr = trySudo("""/usr/bin/osascript -e 'do shell script "%s" with administrator privileges'""")
+						if sudoErr:
 							sublime.message_dialog("No sudo GUI found")
-
-
-			
-
+			return sudoErr
